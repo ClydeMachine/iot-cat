@@ -1,11 +1,14 @@
 /**
+ * Most of the code below is straight out of the AWS IoT simple email template.
+ * ****
+ * 
  * This is a sample lambda function that sends an Email on click of a
  * button. It creates a SNS topic, subscribes an endpoint (EMAIL)
  * to the topic and publishes to the topic.
  */
 
 // Update this variable with your email address.
-const EMAIL = 'jgreenemi@gmail.com';
+const EMAIL = 'youremail@yourdomain.com';
 
 /**
  * NOTE: Your function's execution role needs specific permissions for SNS operations.
@@ -153,9 +156,9 @@ exports.handler = (event, context, callback) => {
         // publish message
         const params = {
             // Message: `${event.serialNumber} -- processed by Lambda\nBattery voltage: ${event.batteryVoltage}`,
-			Message: `I'm a cat and I'm the first IoT-enabled cat! -Oslo`,
+			Message: `I'm a cat and I'm IoT-enabled! -(YOUR CAT)`,
             // Subject: `Hello from Oslo from your IoT Button ${event.serialNumber}: ${event.clickType} !`,
-			Subject: `Hello from Oslo!`,
+			Subject: `Hello from (YOUR CAT'S NAME HERE)!`,
             TopicArn: topicArn
         };
         // result will go to function callback
